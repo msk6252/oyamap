@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
+    <%= f.text_field :latitude, :id => 'map_latitude'%>
   </div>
   <div class="field">
     <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
+    <%= f.text_field :longitude, :id => 'map_longitude'%>
   </div>
   <div class="field">
     <%= f.label :address %><br>
@@ -31,6 +31,32 @@
     <%= f.label :body %><br>
     <%= f.text_field :body %>
   </div>
+  <div id="map">
+  </div>
+  <style type="text/css">
+    #map {
+      height:400px;
+    }
+  </style>
+    <script type="text/javascript">
+        L.Icon.Default.imagePath = "/assets";
+        var map = L.map('map').setView([39.099388, 141.079960],17);
+        var osmUrl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+        var osmAttrib = "Map data OpenstreetMap contributors";
+        L.tileLayer(osmUrl,{
+          attribution: osmAttrib,
+          maxZoom: 20,
+        }).addTo(map);
+
+        var marker = L.marker([39.099388, 141.079960]).addTo(map);
+        
+        map.on("click",function(e){
+          marker.setLatLng(e.latlng);
+          $('#map_latitude').val(e.latlng.lat);
+          $('#map_longitude').val(e.latlng.lng);
+        });
+    </script>
+    
   <div class="actions">
     <%= f.submit %>
   </div>
