@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161228094946) do
+ActiveRecord::Schema.define(version: 20161229173642) do
 
   create_table "maps", force: :cascade do |t|
     t.string   "title"
