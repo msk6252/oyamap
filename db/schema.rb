@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223150439) do
+ActiveRecord::Schema.define(version: 20161229173642) do
 
   create_table "maps", force: :cascade do |t|
     t.string   "title"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.decimal  "latitude",   precision: 11, scale: 8
+    t.decimal  "longitude",  precision: 11, scale: 8
     t.string   "address"
     t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade do |t|

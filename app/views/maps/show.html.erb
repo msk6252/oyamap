@@ -25,5 +25,25 @@
   <%= @map.body %>
 </p>
 
+<div id="map">
+  </div>
+  <style type="text/css">
+    #map {
+      height:450px;
+    }
+  </style>
+    <script type="text/javascript">
+        L.Icon.Default.imagePath = "/assets";
+        <%= lat = @map.latitude %>
+        <%= lon = @map.longitude %>
+        var map = L.map('map').setView([<%= lat %>,<%= lon %>],17);
+        var osmUrl = "http://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg";
+        var osmAttrib = "Map data &COPY; OpenStreetMap contributors";
+        L.tileLayer(osmUrl, {
+          attribution: osmAttrib,
+          maxZoom: 20,
+        }).addTo(map);
+        var marder = L.marker([<%= lat %>,<%= lon %>]).addTo(map);
+    </script>
 <%= link_to 'Edit', edit_map_path(@map) %> |
 <%= link_to 'Back', maps_path %>

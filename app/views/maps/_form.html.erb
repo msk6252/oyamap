@@ -16,33 +16,27 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude, :id => 'map_latitude'%>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude, :id => 'map_longitude'%>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
     <%= f.label :body %><br>
     <%= f.text_field :body %>
   </div>
+
+  <%= f.hidden_field :latitude, :id => 'map_latitude'%>
+  <%= f.hidden_field :longitude, :id => 'map_longitude'%>
+  <%= f.hidden_field :address %>
+  
+
   <div id="map">
   </div>
   <style type="text/css">
     #map {
-      height:400px;
+      height:450px;
     }
   </style>
     <script type="text/javascript">
         L.Icon.Default.imagePath = "/assets";
         var map = L.map('map').setView([39.099388, 141.079960],17);
-        var osmUrl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-        var osmAttrib = "Map data OpenstreetMap contributors";
+        var osmUrl = "http://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg";
+        var osmAttrib = "Map data &COPY;OpenstreetMap contributors";
         L.tileLayer(osmUrl,{
           attribution: osmAttrib,
           maxZoom: 20,

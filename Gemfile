@@ -28,6 +28,8 @@ gem 'devise'
 gem 'rails_admin'
 gem 'cancan'
 
+gem 'geocoder'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
