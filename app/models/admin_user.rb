@@ -5,4 +5,11 @@ class AdminUser < ActiveRecord::Base
   			# :registerable,
          #:recoverable, 
          :rememberable, :trackable, :validatable
+
+
+  private
+  def confirmation_period_valid?
+    return true
+  end
+
 end
