@@ -7,6 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav>
+	  <% if user_signed_in? %>
+  		<strong><%= current_user.email %>でログイン中</strong><br/>
+  		<%= link_to "設定", edit_user_registration_path, :class => "navbar-link" %> |
+  		<%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => "navbar-link" %> |
+  		<%= link_to "スポット一覧", maps_path, :class => "navbar-link" %> |
+  		<%= link_to "スポット登録", new_map_path, :class => "navbar-link" %>
+	  <% else %>
+  		<%= link_to "新規登録", new_user_registration_path, :class => 'navbar-link' %> |
+  		<%= link_to "ログイン", new_user_session_path, :class => 'navbar-link' %>
+	  <% end %>
+	</nav>
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
