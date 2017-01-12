@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_for :admin_users
+  devise_for :admin_users, controllers: {
+      sessions: 'admin_users/sessions'
+  } #admin用ルート
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  devise_scope :admin_user do
+    get "sign_in", :to => "admin_users/sessions#new"
+    get "sign_out", :to => "admin_users/sessions#destroy"
+  end #admin用
+
   get 'home/index'
   root 'maps#index'
   resources :maps
