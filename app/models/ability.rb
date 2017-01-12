@@ -10,11 +10,11 @@ class Ability
     #     can :read, :all
     #   end
     #
-    def initialize(user)
-         if user
+    def initialize(admin_user)
+         if admin_user
             can :access, :rails_admin   # grant access to rails_admin
             can :manage, :all        # allow superadmins to do anything
-            cannot :manage, AdminUser
+            cannot :manage, admin_user
          end
     end
     # The first argument to `can` is the action you are giving the user 

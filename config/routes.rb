@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_for :admin_users, controllers: {
-      sessions: 'admin_users/sessions'
-  } #admin用ルート
+  devise_for :admin_users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_scope :admin_user do

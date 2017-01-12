@@ -11,5 +11,4 @@ class AdminUser < ActiveRecord::Base
   def confirmation_period_valid?
     return true
   end
-
 end
