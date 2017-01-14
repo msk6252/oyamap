@@ -25,9 +25,8 @@
   <%= f.hidden_field :address %>
   
 
-  <div id="map">
-  </div>
-  <style type="text/css">
+  <div id="map" class="row-sm-12"></div>
+  <style type="text/scss">
     #map {
       height:450px;
     }
@@ -50,8 +49,8 @@
           $('#map_longitude').val(e.latlng.lng);
         });
     </script>
-    
+  <br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:'btn btn-primary'%>
   </div>
 <% end %>
