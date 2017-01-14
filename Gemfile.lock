@@ -202,7 +202,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   geocoder
-  honoka-rails
+  honoka-rails (>= 3.3.6.3)
   jbuilder (~> 2.0)
   jquery-rails
   pg
