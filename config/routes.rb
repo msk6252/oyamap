@@ -1,16 +1,27 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
   devise_for :admin_users
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  #devise_for :admin_usersの下にするものらしいです↓
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  get "home/index"
+  root "maps#index"
+  resources :maps
+
+  devise_for :users
+
+  devise_scope :users do
+    get "sign_in", :to => "users/sessions#new"
+    get "sign_out", :to => "users/sessions#destroy"
+  end
 
   devise_scope :admin_user do
     get "sign_in", :to => "admin_users/sessions#new"
     get "sign_out", :to => "admin_users/sessions#destroy"
   end #admin用
 
-  get 'home/index'
-  root 'maps#index'
-  resources :maps
+  #match '*path' => 'applications#render_404', via: :all
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
