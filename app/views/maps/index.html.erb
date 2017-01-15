@@ -15,41 +15,6 @@
           }).addTo(map);
     </script>
     <br>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Address</th>
-          <th>Body</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-
-      <tbody>
-        <% @maps.each do |map| %>
-          <tr>
-            <td><%= map.title %></td>
-            <td><%= map.address %></td>
-            <td><%= map.body %></td>
-            <script type="text/javascript">       
-                var popup = L.popup().setContent('<%= simple_format(h(map.title)) %><%= link_to '詳細', map %>');
-                var marder = L.marker(
-                  [<%= map.latitude %>,<%= map.longitude %>],
-                  { title: map.title}
-                  ).addTo(map)
-                .bindPopup(popup);
-                  
-            </script>
-            <td>　<%= link_to '詳細', map %></td>
-            <td>　<%= link_to '編集', edit_map_path(map) %></td>
-            <td>　<%= link_to '削除', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <br>
-
 <%= link_to 'スポット新規登録', new_map_path ,class: 'btn btn-primary'%>
 </div>
 </div>
