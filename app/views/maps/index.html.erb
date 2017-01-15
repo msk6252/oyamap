@@ -14,7 +14,7 @@
     <% @maps.each do |map| %>
     <script type="text/javascript">       
         var popup = L.popup().setContent('<%= simple_format(h(map.title)) %><%= link_to '詳細', map %>');
-        var marder = L.marker(
+        var marker = L.marker(
         [<%= map.latitude %>,<%= map.longitude %>],
         { title: map.title }
         ).addTo(map)

@@ -45,5 +45,6 @@
         }).addTo(map);
         var marder = L.marker([<%= lat %>,<%= lon %>]).addTo(map);
     </script>
+    <br>
 <%= link_to 'Edit', edit_map_path(@map) %> |
-<%= link_to 'Back', maps_path %>
+<%= link_to 'Back', maps_path %> | <%= link_to 'Delete',@map,method: :delete, data: { confirm: '本当に削除してよろしいですか？' } ,class:'btn btn-danger'%>
