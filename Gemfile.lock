@@ -162,6 +162,9 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    seed-fu (2.3.6)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     spring (2.0.0)
       activesupport (>= 4.2)
     sprockets (3.7.1)
@@ -211,6 +214,7 @@ DEPENDENCIES
   rails_admin
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  seed-fu
   spring
   sqlite3
   therubyracer
