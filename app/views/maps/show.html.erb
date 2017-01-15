@@ -37,7 +37,7 @@
         <%= lat = @map.latitude %>
         <%= lon = @map.longitude %>
         var map = L.map('map').setView([<%= lat %>,<%= lon %>],17);
-        var osmUrl = "http://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg";
+        var osmUrl = "https://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg";
         var osmAttrib = "Map data &COPY; OpenStreetMap contributors";
         L.tileLayer(osmUrl, {
           attribution: osmAttrib,
