@@ -19,6 +19,11 @@
     <%= f.label :body %><br>
     <%= f.text_area :body ,class: 'form-control'%>
   </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image%>
+    <%= f.hidden_field :image_cache %>
+  </div>
 
   <%= f.hidden_field :latitude, :id => 'map_latitude'%>
   <%= f.hidden_field :longitude, :id => 'map_longitude'%>

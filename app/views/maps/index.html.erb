@@ -13,7 +13,7 @@
     </script>
     <% @maps.each do |map| %>
     <script type="text/javascript">       
-        var popup = L.popup().setContent('<%= simple_format(h(map.title)) %><%= link_to '詳細', map %>');
+        var popup = L.popup().setContent('<%= simple_format(h(map.title)) %><%= image_tag map.image,:size => "64x64" %><br /><%= link_to '詳細', map %>');
         var marker = L.marker(
         [<%= map.latitude %>,<%= map.longitude %>],
         { title: map.title }

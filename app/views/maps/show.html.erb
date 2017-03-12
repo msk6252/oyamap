@@ -1,28 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>スポット名</strong>
   <%= @map.title %>
 </p>
 
 <p>
-  <strong>Latitude:</strong>
+  <strong>緯度</strong>
   <%= @map.latitude %>
 </p>
 
 <p>
-  <strong>Longitude:</strong>
+  <strong>経度</strong>
   <%= @map.longitude %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>住所</strong>
   <%= @map.address %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>概要</strong>
   <%= simple_format(@map.body) %>
+</p>
+
+<p>
+  <strong>Image:</strong><br />
+  <%= image_tag @map.image,:size => "480x360" %>
 </p>
 
 <div id="map">
